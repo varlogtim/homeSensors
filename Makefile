@@ -4,7 +4,7 @@ all:
 	$(MAKE) build
 
 .PHONY: get-deps
-get-deps: get-deps-arduino-cli
+get-deps: get-deps-tempHumidityMonitor
 	echo stuff.
 
 .PHONY: get-deps-%

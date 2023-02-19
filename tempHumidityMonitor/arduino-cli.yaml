@@ -6,8 +6,9 @@ daemon:
 directories:
   data: ./arduino-cli-data
   downloads: ./arduino-cli-data/staging
+  user: ./arduino-cli-data/user  # --git-hub libs go under libs/ here.
 library:
-  enable_unsafe_install: false
+  enable_unsafe_install: true  # TODO: fix me after removing DRRobot
 logging:
   file: ""
   format: text
