@@ -7,6 +7,7 @@ DFRobot_DHT11 DHT;
 WiFiUDP udp;
 
 #define DHT11_PIN 13
+#define LED 2
 
 const char *SSID = "derp";
 const char *WiFiPassword = "NotThePassword";
@@ -33,21 +34,29 @@ void ConnectToWifi()
   Serial.printf("Connected. IP Addr: %s\n", WiFi.localIP());
 }
 
+
+
 void setup() {
   Serial.begin(9600);
-  ConnectToWifi();
+  //ConnectToWifi();
+  pinMode(LED, OUTPUT);
 }
 
 
 void loop() {
   // put your main code here, to run repeatedly:
   delay(1000);
+  digitalWrite(LED, HIGH);
   DHT.read(DHT11_PIN);
 
   float tempF = DHT.temperature * 1.8 + 32;
 
+  /*
   udp.beginPacket(udpAddress, udpPort);
   udp.printf("%.1fx%d\n", tempF, DHT.humidity);
   udp.endPacket();
+  */
   Serial.printf("temp:%d, humi: %.1f\n", tempF, DHT.humidity);
+  delay(1000);
+  digitalWrite(LED, LOW);
 }
