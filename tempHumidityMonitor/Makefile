@@ -31,5 +31,5 @@ build:
 	
 
 .PHONY: upload
-upload:
+upload: build
 	$(ard_cli) upload --fqbn $(fqbn) -p $(board_path) tempHumidityMonitor.ino
